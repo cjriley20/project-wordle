@@ -14,14 +14,8 @@ console.info({ answer });
 function Game() {
   const [guesses, setGuesses] = React.useState([]);
 
-  function addGuess(guess) {
-    const newGuess = {
-      guess,
-      id: crypto.randomUUID(),
-    };
-    const nextGuesses = [...guesses];
-    nextGuesses.push(newGuess);
-    setGuesses(nextGuesses);
+  function addGuess(tentativeGuess) {
+    setGuesses([...guesses, tentativeGuess]);
   }
 
   return (
