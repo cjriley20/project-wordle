@@ -34,7 +34,7 @@ function Game() {
       <GuessInput addGuess={addGuess} gameStatus={gameStatus} />
       <Banner
         gameStatus={gameStatus}
-        numGuesses={guesses.length}
+        numOfGuesses={guesses.length}
         answer={answer}
       />
     </>
