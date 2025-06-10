@@ -16,16 +16,16 @@ console.info({ answer });
 
 function Game() {
   const [guesses, setGuesses] = React.useState([]);
-  const [status, setStatus] = React.useState('running');
+  const [gameStatus, setGameStatus] = React.useState('running');
 
   function updateStatus(tentativeGuess) {
     const result = checkGuess(tentativeGuess, answer);
     if (result.every(({ status }) => status === 'correct')) {
-      setStatus('won');
+      setGameStatus('won');
     } else if (guesses.length + 1 === NUM_OF_GUESSES_ALLOWED) {
-      setStatus('lost');
+      setGameStatus('lost');
     } else {
-      setStatus('running');
+      setGameStatus('running');
     }
   }
 
@@ -37,8 +37,12 @@ function Game() {
   return (
     <>
       <GuessResults guesses={guesses} answer={answer} />
-      <GuessInput addGuess={addGuess} status={status} />
-      <Banner status={status} numGuesses={guesses.length} answer={answer} />
+      <GuessInput addGuess={addGuess} gameStatus={gameStatus} />
+      <Banner
+        gameStatus={gameStatus}
+        numGuesses={guesses.length}
+        answer={answer}
+      />
     </>
   );
 }

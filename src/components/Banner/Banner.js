@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Banner({ status, numGuesses, answer }) {
+function Banner({ gameStatus, numGuesses, answer }) {
   let bannerContent;
 
-  if (status === 'won') {
+  if (gameStatus === 'won') {
     bannerContent = (
       <div className="happy banner">
         <p>
@@ -12,7 +12,7 @@ function Banner({ status, numGuesses, answer }) {
         </p>
       </div>
     );
-  } else if (status === 'lost') {
+  } else if (gameStatus === 'lost') {
     bannerContent = (
       <div className="sad banner">
         <p>

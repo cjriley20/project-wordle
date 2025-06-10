@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GuessInput({ addGuess, status }) {
+function GuessInput({ addGuess, gameStatus }) {
   const [tentativeGuess, setTentativeGuess] = React.useState('');
 
   function handleSubmit(event) {
@@ -9,7 +9,7 @@ function GuessInput({ addGuess, status }) {
     setTentativeGuess('');
   }
 
-  const isHidden = status !== 'running';
+  const isHidden = gameStatus !== 'running';
 
   return (
     <form className="guess-input-wrapper" onSubmit={handleSubmit}>
