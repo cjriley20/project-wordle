@@ -9,15 +9,13 @@ function GuessInput({ addGuess, gameStatus }) {
     setTentativeGuess('');
   }
 
-  const isHidden = gameStatus !== 'running';
-
   return (
     <form className="guess-input-wrapper" onSubmit={handleSubmit}>
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         id="guess-input"
         type="text"
-        required={!isHidden}
+        required
         pattern="[A-Z]{5}"
         maxLength="5"
         title="5 letter word"
@@ -25,8 +23,7 @@ function GuessInput({ addGuess, gameStatus }) {
         onChange={(event) => {
           setTentativeGuess(event.target.value.toUpperCase());
         }}
-        disabled={isHidden}
-        style={{ visibility: isHidden ? 'hidden' : 'visible' }}
+        disabled={gameStatus !== 'running'}
       />
     </form>
   );
