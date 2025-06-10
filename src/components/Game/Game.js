@@ -38,7 +38,7 @@ function Game() {
     <>
       <GuessResults guesses={guesses} answer={answer} />
       <GuessInput addGuess={addGuess} status={status} />
-      {status !== 'running' && <Banner status={status} />}
+      <Banner status={status} numGuesses={guesses.length} answer={answer} />
     </>
   );
 }
